@@ -113,9 +113,9 @@ class RegistrationManager(models.Manager):
 
         """
         User = get_user_model()
-        username = str(getattr(user, User.USERNAME_FIELD))
-        hash_input = (get_random_string(5) + username).encode('utf-8')
-        activation_key = hashlib.sha1(hash_input).hexdigest()
+        salt = hashlib.sha1(get_random_string(5).encode('utf-8')).hexdigest()[:5]
+	salted_username = salt + user.username
+	activation_key = hashlib.sha1(salted_username.encode('utf-8')).hexdigest()
         return self.create(user=user,
                            activation_key=activation_key)
 

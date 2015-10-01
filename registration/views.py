@@ -19,7 +19,7 @@ class RegistrationView(FormView):
 
     """
     disallowed_url = 'registration_disallowed'
-    form_class = RegistrationForm
+    form_class = RegistrationFormUniqueEmail
     success_url = None
     template_name = 'registration/registration_form.html'
 

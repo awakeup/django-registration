@@ -144,3 +144,21 @@ class RegistrationFormNoFreeEmail(RegistrationForm):
         if email_domain in self.bad_domains:
             raise forms.ValidationError(FREE_EMAIL)
         return self.cleaned_data['email']
+
+
+
+class RegistrationFormUniqueEmailAB(RegistrationFormUniqueEmail):
+    """
+    Subclass of RegistrationFormUniqueEmail with an antibot field
+    """
+    abf = forms.CharField(required=False, label=_(u'I am not the bot'), initial=_(u'Please erase all content of the field'), 
+	max_length=60, error_messages={'abf': _(u'I am not the bot, right?'), 'invalid': 'Enter a valid value'})
+
+
+    def clean_abf(self):
+        value = self.cleaned_data["abf"]
+        if value:
+            raise forms.ValidationError(_(u'I am not the bot, right?'))
+        return value
+
+

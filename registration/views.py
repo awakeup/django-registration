@@ -10,7 +10,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 
 from registration import signals
-from registration.forms import RegistrationForm
+from registration.forms import RegistrationFormUniqueEmailAB
 
 
 class RegistrationView(FormView):
@@ -19,7 +19,7 @@ class RegistrationView(FormView):
 
     """
     disallowed_url = 'registration_disallowed'
-    form_class = RegistrationFormUniqueEmail
+    form_class = RegistrationFormUniqueEmailAB
     success_url = None
     template_name = 'registration/registration_form.html'
 

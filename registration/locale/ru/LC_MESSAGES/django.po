@@ -75,6 +75,18 @@ msgstr ""
 "Регистрация с использованием свободных почтовых серверов запрещена. "
 "Пожалуйста, введите другой адрес электронной почты."
 
+#: forms.py:154
+msgid "I am not the bot"
+msgstr "Я же не бот"
+
+#: forms.py:154
+msgid "Please erase all content of the field"
+msgstr "Пожалуйста,удалите всё содержимое поля"
+
+#: forms.py:155 forms.py:161
+msgid "I am not the bot, right?"
+msgstr "Я же не бот, верно?"
+
 #: models.py:165
 msgid "user"
 msgstr "пользователь"
